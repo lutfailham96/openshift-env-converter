@@ -2,6 +2,6 @@
 Simple Openshift secrets / environment converter to JSON
 
 ## How to use?
-```bash
+```shell
 node index.js /tmp/my-secret.yml
 ```
