@@ -37,8 +37,12 @@ if (Array.isArray(envConfig)) {
   });
 } else {
   Object.assign(convertedConfig, envConfig);
-  Object.keys(convertedConfig).map((key) => {
-    convertedConfig[key] = Buffer.from(convertedConfig[key], 'base64').toString('utf8')
+  Object.keys(convertedConfig).forEach((key) => {
+    if (convertedConfig[key] === null) {
+      convertedConfig[key] = "";
+    } else {
+      convertedConfig[key] = Buffer.from(convertedConfig[key], 'base64').toString('utf8');
+    }
   });
 }
 
